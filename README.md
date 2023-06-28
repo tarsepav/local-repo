@@ -22,3 +22,5 @@
 Удалить пакет ssh -n [имя пользователя]@[имя сервера/ip-адрес] rm [путь к файлу]
 
 Просмотр логов через docker logs repo-server-c или docker inspect --format{{.LogPath}} repo-server-c
+
+Проверка nginx сервера через healthckeck, каждые 15с, без перезапуска контейнера.
