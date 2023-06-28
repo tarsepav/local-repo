@@ -23,4 +23,4 @@
 
 Просмотр логов через docker logs repo-server-c или docker inspect --format{{.LogPath}} repo-server-c
 
-Проверка nginx сервера через healthckeck, каждые 15с, без перезапуска контейнера.
+Проверка nginx сервера через healthcheck, каждые 15с, без перезапуска контейнера.
