@@ -20,6 +20,6 @@ COPY --chmod=600 ./authorized_keys /root/.ssh/authorized_keys
 #create-repository:
 RUN mkdir -p /usr/share/nginx/html/repos/7/os/x86_64 
 RUN createrepo -v /usr/share/nginx/html/repos/7/os/x86_64
+#create symlinks to docker logs: 
 RUN ln -sf /proc/1/fd/1 /var/log/nginx/access.log && ln -sf /proc/1/fd/1 /var/log/nginx/error.log && ln -sf /proc/1/fd/1 /var/log/secure
-#RUN echo "ping" > /usr/share/nginx/html/ping.html
 HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl -sS localhost/404.html || exit 1
