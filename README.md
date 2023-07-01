@@ -24,7 +24,7 @@
 
 >ssh -n [имя пользователя]@[имя сервера/ip-адрес] rm [путь к файлу]
 
-Просмотр логов через nginx и sshd
->docker logs docker-repo-server-1
+Просмотр логов nginx и sshd
+>docker-compose logs
 
 Автоматическая проверка доступности nginx сервера через healthcheck, каждые 30с, без перезапуска контейнера.
