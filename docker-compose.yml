@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  repo-server:
+    build: ./server
+    tty: true
+    entrypoint: ['/usr/sbin/init']
+    networks:
+      vpcbr:
+        ipv4_address: 172.28.100.2
+    tmpfs:
+      - /run
+      - /tmp
+    volumes:
+      - ./repos:/usr/share/nginx/html/repos/7/os/x86_64:Z
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    logging:
+      driver: "json-file"
+      options:
+        mode: non-blocking
+        max-size: "500m"
+  repo-client:
+    build: ./client
+    tty: true
+    networks:
+      vpcbr:
+        ipv4_address: 172.28.100.3
+    depends_on:
+      - repo-server
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.28.100.0/29
+         gateway: 172.28.100.1

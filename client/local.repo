@@ -1,0 +1,5 @@
+[local]
+name=LocalRepo
+baseurl=http://172.28.100.2/repos/$releasever/os/$basearch/
+enabled=1
+gpgcheck=0
